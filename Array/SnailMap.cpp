@@ -12,9 +12,15 @@ vector<int> snail(const vector<vector<int>> &snail_map) {
   bool down=1, right=1, vertical=1;;
   
   int n=snail_map.size()-1, k = snail_map.size()-1;
+  if(n==0){
+    cout<<snail_map[0][0]<<',';
+    result.push_back(snail_map[0][0]);
+  }
+    
+
   int i=0,j=0;
   
-  while(k>1){
+  while(k>0){
     if(vertical){
       if(right){
         j=n-k;  ///Begin
@@ -64,14 +70,9 @@ vector<int> snail(const vector<vector<int>> &snail_map) {
   return result;
 }
 
-
 int main(){
     cout<<"Hello"<<endl;
-    vector<vector<int>>     tmp={{1,2,3,4,9},
-                                 {4,5,6,7,6},
-                                 {4,7,7,7,5},
-                                 {6,6,6,6,4},
-                                 {7,8,9,10,29}};
+    vector<vector<int>>     tmp{{1,2}, {4,3}};
     cout<<"the array"<<endl;
     vector<int> res= snail(tmp);
     for(size_t i=0;i<res.size();i++)
